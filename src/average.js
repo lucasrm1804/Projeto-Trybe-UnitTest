@@ -13,12 +13,20 @@
 */
 
 const average = (array) => { 
+  const divisor = array.length;
   let soma = 0;
+  if (array.length === 0) {
+ return undefined;
+  } 
   for (let index = 0; index < array.length; index += 1) {
-    soma += array[index];
+    if (typeof (array[index]) !== 'number') {
+      return undefined;
+    }
+      soma += array[index];
   }
-  return soma / 2;
+    return Math.round((soma / divisor));
 };
-average([1, 2, 3]);
+
+console.log(average([3, 4, 5]));
 
 module.exports = average;
